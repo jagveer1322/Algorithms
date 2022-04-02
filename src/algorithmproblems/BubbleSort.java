@@ -1,30 +1,24 @@
 package algorithmproblems;
 
-class BubbleSort {
-	void bubbleSort(int arr[]) {
-		for (int i = 0; i < arr.length; i++)
-			for (int j = 0; j < arr.length - i - 1; j++)
-				if (arr[j] > arr[j + 1]) {
-					// swap
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
+import java.util.Scanner;
+
+public class BubbleSort {
+
+	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("number of elements");
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+
+		System.out.println("Enters Entries");
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
+		}
+		Utility.bubbleSort(arr);
+		sc.close();
+		long end = System.currentTimeMillis();
+		System.out.println("Time is taken by to program in milli seconds " + (end - start));
 	}
 
-	void printArray(int arr[]) {
-		int n = arr.length;
-		for (int i = 0; i < n; ++i)
-			System.out.print(arr[i] + " ");
-		System.out.println();
-	}
-
-	public static void main(String args[]) {
-		BubbleSort ob = new BubbleSort();
-		int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
-		System.out.println("length of array " + arr.length);
-		ob.bubbleSort(arr);
-		System.out.println("Sorted array");
-		ob.printArray(arr);
-	}
 }

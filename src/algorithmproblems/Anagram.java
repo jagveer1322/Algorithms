@@ -1,40 +1,21 @@
 package algorithmproblems;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Anagram {
+
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-
-		System.out.print("Enter the First String : ");
-		String s1 = scanner.nextLine();
-
-		System.out.print("Enter the second String : ");
-		String s2 = scanner.nextLine();
-
-		if (checkAnagram(s1, s2))
-			System.out.println(s1 + " and " + s2 + " are Anagrams");
-		else
-			System.out.println(s1 + " and " + s2 + " are NOT Anagrams");
-
+		long start = System.currentTimeMillis();
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the first name");
+		String str = sc.nextLine();
+		System.out.println("Enter the Second name");
+		String str2 = sc.nextLine();
+		System.out.println(Utility.isAnagramString(str, str2));
+		sc.close();
+		long end = System.currentTimeMillis();
+		System.out.println("Time is taken by to program in milli seconds " + (end - start));
 	}
 
-	public static boolean checkAnagram(String s1, String s2) {
-
-		s1 = s1.replaceAll("\\s", "");
-		s2 = s2.replaceAll("\\s", "");
-
-		if (s1.length() != s2.length())
-			return false;
-		else {
-			char[] arr1 = s1.toLowerCase().toCharArray();
-			char[] arr2 = s2.toLowerCase().toCharArray();
-
-			Arrays.sort(arr1);
-			Arrays.sort(arr2);
-
-			return (Arrays.equals(arr1, arr2));
-		}
-	}
 }

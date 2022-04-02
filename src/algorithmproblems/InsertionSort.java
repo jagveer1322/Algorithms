@@ -1,28 +1,25 @@
 package algorithmproblems;
 
+import java.util.Scanner;
+
 public class InsertionSort {
 
 	public static void main(String[] args) {
-		String[] arr = { "Delhi", "Jaipur", "Hyderabad", "Bangalore" };
-		int count = 0;
-		String sortedArray[] = sort(arr, arr.length);
-		System.out.println("length of array ==>" + arr.length);
-		for (int i = 0; i < sortedArray.length; i++) {
-			System.out.println(sortedArray[i]);
+		long start = System.currentTimeMillis();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("number of elements");
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+
+		System.out.println("Enters Entries");
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
 		}
+		Utility.insertionSortInt(arr);
+		sc.close();
+		long end = System.currentTimeMillis();
+		System.out.println("Time is taken by to program in milli seconds " + (end - start));
+
 	}
 
-	public static String[] sort(String array[], int f) {
-		String temp = "";
-		for (int i = 0; i < f; i++) {
-			for (int j = i + 1; j < f; j++) {
-				if (array[i].compareToIgnoreCase(array[j]) > 0) {
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
-				}
-			}
-		}
-		return array;
-	}
 }
